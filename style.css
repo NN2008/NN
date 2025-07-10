@@ -228,10 +228,13 @@ header ul li {
     header h1 {
         left:50%;
         transform: translateX(-50%);
-        font-size: 30px;
+        font-size: 28px;
     }
     .N1 h2 {
-        font-size: 80px;
+        font-size: 50px;
+    }
+    .N2 p {
+        font-size: 45px;
     }
     .menu{
         display: block;
