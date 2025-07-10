@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+<!--head是網頁顯示不出來 只有後臺可以看到的東西-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
     <link rel="stylesheet" href ="style.css">
 </head>
 
+<!--body是可以讓網頁顯示出來的東西-->
 <body>
+    <!--下面是導覽頁的程式-->
     <header>
     <button class="menu">&#9776;</button>
     <h1>阿毛的秘密基地</h1>
@@ -18,14 +21,16 @@
     </ul>
     </header>
 
+    <!--下面是超大貼臉歡迎詞-->
     <main>
     <section class="N1">
     <h2>畢業快樂!</h2>
     <p>歡迎來到阿毛的秘密基地！</p>
     </section>
 
+    <!--下面是說明(圖片在上面文字在下面)的程式-->
     <section class="N2">
-        <p>"以紙板與巧手打造，結合多位繪師的精美繪圖，<br> 共同成就這台獨一無二的轉珠機。"</p>
+        <p>「 活動回顧 」</p>
     </section> 
 
     <section class="N4">
@@ -44,10 +49,15 @@
         <div>
         <img src="images/P3.jpg" alt="2025.4.1愚人節活動">
         <h4>2025.4.1愚人節活動</h4>
-        <p>以紙板親手打造的轉珠機，結合多位老師的插圖，不同的獎項，帶來滿滿的抽獎驚喜，還有可愛的小丑鼻和小品解謎影片，
-            以及委託繪師繪製的愚人節賀卡，為大家獻上別具巧思的節日體驗。</p>
+        <p>「以紙板親手打造的轉珠機，結合多位老師的插圖，不同的獎項，帶來抽獎的驚喜感，還有可愛的小丑鼻和小品解謎影片，
+            以及委託繪師繪製的愚人節賀卡，為大家獻上別具巧思的節日體驗。」</p>
         </div>
     </section>
+
+    <!--下面是介紹(左邊圖片右邊文字)的程式-->
+    <section class="N2">
+        <p>「 商品販售（沒 」</p>
+    </section> 
 
     <section class="N3">
         <img src="images/P4.jpg" alt="轉珠機">
@@ -56,10 +66,37 @@
         <p>"以紙板與巧手打造，結合多位繪師的精美繪圖，<br> 共同成就這台獨一無二的轉珠機。"</p>
         </div>
     </section>
+
+    <section class="N3">
+        <img src="images/P5.jpg" alt="一番賞">
+        <div class="O2">
+        <h3>〈一番賞〉</h3>
+        <p>"每一張籤紙皆由手工精心製作，<br>搭配風格多變的可愛插圖，<br>讓你在打開的瞬間，感受到那份獨具匠心的驚喜與心意。"</p>
+        </div>
+    </section>
     </main>
 
+    <!--下面是尾頁的字-->
     <footer>
     <p>Copyright © 2025 阿毛的秘密基地 All Rights Reserved</p>
     </footer>
+
+    <!--下面是漢堡選單的程式-->
+    <script>
+const menuBtn = document.querySelector('.menu');
+const header = document.querySelector('header');
+
+menuBtn.addEventListener('click', () => {
+    header.classList.toggle('active');
+});
+
+// 點選選單自動收回（如果你希望點完選單就收合）
+document.querySelectorAll('header ul li a').forEach(link => {
+    link.addEventListener('click', () => {
+        header.classList.remove('active');
+    });
+});
+</script>
+
 </body>
-</html> 
+</html>
