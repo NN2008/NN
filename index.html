@@ -24,9 +24,30 @@
     <!--下面是超大貼臉歡迎詞-->
     <main>
     <section class="N1">
-    <h2>畢業快樂!</h2>
-    <p>歡迎來到阿毛的秘密基地！</p>
-    </section>
+  <div class="carousel">
+    <div class="slides">
+      <div class="slide" style="background-image: url('images/304.jpg')">
+        <div class="slide-text">
+        <h2>畢業快樂！</h2>
+        <p>歡迎來到阿毛的秘密基地！</p>
+        </div>
+      </div>
+      <div class="slide" style="background-image: url('images/P6.jpg')">
+        <div class="slide-text">
+        <h2>難產的宜蘭行！</h2>
+        <p>歡迎來到阿毛的秘密基地！</p>
+        </div>
+      </div>
+      <div class="slide" style="background-image: url('images/P7.jpg')">
+        <div class="slide-text">
+        <h2>要組一輩子的動漫社！</h2>
+        <p>歡迎來到阿毛的秘密基地！</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dots"></div>
+</section>
 
     <!--下面是說明(圖片在上面文字在下面)的程式-->
     <section class="N2">
@@ -83,19 +104,58 @@
 
     <!--下面是漢堡選單的程式-->
     <script>
-const menuBtn = document.querySelector('.menu');
-const header = document.querySelector('header');
+    const menuBtn = document.querySelector('.menu');
+    const header = document.querySelector('header');
 
-menuBtn.addEventListener('click', () => {
+    menuBtn.addEventListener('click', () => {
     header.classList.toggle('active');
-});
+    });
 
-// 點選選單自動收回（如果你希望點完選單就收合）
-document.querySelectorAll('header ul li a').forEach(link => {
+    // 點選選單自動收回（如果你希望點完選單就收合）
+    document.querySelectorAll('header ul li a').forEach(link => {
     link.addEventListener('click', () => {
         header.classList.remove('active');
     });
-});
+    });
+    </script>
+
+    <!--下面是輪播的JS程式-->
+    <script>
+const slides = document.querySelector('.slides');
+const dotsContainer = document.querySelector('.dots');
+const slidesCount = document.querySelectorAll('.slide').length;
+
+let currentIndex = 0;
+
+for (let i = 0; i < slidesCount; i++) {
+    const dot = document.createElement('span');
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => {
+        currentIndex = i;
+        updateSlide();
+        resetInterval();
+    });
+    dotsContainer.appendChild(dot);
+}
+
+function updateSlide() {
+    slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+    document.querySelectorAll('.dots span').forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentIndex);
+    });
+}
+
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % slidesCount;
+    updateSlide();
+}
+
+let interval = setInterval(nextSlide, 6000);
+
+function resetInterval() {
+    clearInterval(interval);
+    interval = setInterval(nextSlide, 6000);
+}
 </script>
 
 </body>
